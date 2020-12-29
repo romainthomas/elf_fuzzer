@@ -34,8 +34,8 @@
 #endif
 
 
-/* Function pointer type 'func_ptr'. 
-   It will be used to create arrays of function pointers in fuzz_*.c 
+/* Function pointer type 'func_ptr'.
+   It will be used to create arrays of function pointers in fuzz_*.c
 */
 typedef int (*func_ptr)(void);
 
@@ -115,7 +115,7 @@ int PAGESIZE; // Set at runtime with getpagesize() in melkor.c
 
 #define HEX "%.8x"
 
-#elif defined(__x86_64__)       /**** x86_64 ****/
+#elif defined(__x86_64__) || defined(__aarch64__)       /**** x86_64 ****/
 // Data Types
 #define Elf_Half Elf64_Half
 #define Elf_Word Elf64_Word

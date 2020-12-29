@@ -53,7 +53,7 @@ int sym1(void)
 
 #if defined(__i386__)
 	orcSYM->st_size = getElf_Word();
-#elif defined(__x86_64__)
+#elif defined(__x86_64__) || defined(__aarch64__)
 	if(rand() % 3 < 2)
 		orcSYM->st_size = getElf_Xword();
 	else
@@ -112,7 +112,7 @@ int sym3(void)
 		orcSYM->st_value = getElf_Addr();
 	else
 		orcSYM->st_value = getElf_Word();
-	
+
 	fprintf(logfp, "(SYM[%d]->st_value = 0x"HEX")", entry, orcSYM->st_value);
 
 	return 1;
@@ -122,7 +122,7 @@ int sym4(void)
 {
 #if defined(__i386__)
 	orcSYM->st_size = getElf_Word();
-#elif defined(__x86_64__)
+#elif defined(__x86_64__) || defined(__aarch64__)
 	if(rand() % 3 < 2)
 		orcSYM->st_size = getElf_Xword();
 	else
